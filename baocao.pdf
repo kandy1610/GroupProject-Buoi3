@@ -1,0 +1,99 @@
+# 🧾 BÁO CÁO BUỔI 3 – THỰC HÀNH GIT THEO NHÓM
+
+### Thành viên:
+
+1. Cao Minh Kỳ
+2. Bùi Minh CHiến
+3. Phan Gia Thịnh
+
+---
+
+## 1. Quy trình làm việc nhóm
+
+Nhóm sử dụng GitHub để phối hợp làm việc. Nhóm trưởng tạo repository trung tâm `GroupProject-Buoi3` và mời các thành viên làm Collaborator.
+Mỗi thành viên clone repo, tạo branch cá nhân `feature-[tên]` để làm việc độc lập. Sau khi hoàn thành, mỗi người tạo Pull Request (PR) để merge vào nhánh `develop`.
+
+Quy trình được thống nhất như sau:
+
+1. Tạo branch cá nhân → `git checkout -b feature-[tên]`
+2. Làm việc, commit và push lên branch cá nhân.
+3. Tạo PR để merge vào `develop`, thành viên khác review và comment.
+4. Nhóm trưởng merge sau khi review.
+5. Cuối cùng, merge `develop` → `main` để hoàn tất dự án.
+
+---
+
+## 2. Các bước Git đã thực hiện
+
+| Hoạt động                           | Mô tả thao tác chính                                                                                             |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| 1. Chuẩn bị môi trường          | Tạo repo, add Collaborator, clone repo, tạo branch `feature-chien`, `feature-thinh`, `test-chien`, `test-thinh`. |
+| 2. Tạo file & commit            | Tạo `task-[tên].md`, `note-[tên].txt`, commit nhiều lần để thể hiện lịch sử làm việc.                            |
+| 3. Pull Request / Merge Request | Mỗi thành viên tạo PR → review lẫn nhau → nhóm trưởng merge vào `develop`.                                       |
+| 4. Xung đột merge               | `chien` và `thinh` cùng sửa `README.md` → nhóm trưởng merge gây conflict → sửa và commit lại.                    |
+| 5. Tag & Release                | Tạo `v1.0`, `v1.1` bằng `git tag` → push tag, các thành viên checkout tag để xem version.                        |
+| 6. Báo cáo nhóm                 | Viết báo cáo quy trình, tổng kết thao tác, cảm nhận.                                                             |
+| 7. Feature chung                | Tạo branch `feature-shared` → tất cả thêm `shared-[tên].txt`, cùng sửa `group-note.md` → merge vào `develop`.    |
+| 8. Rollback & Restore           | Thực hành `git reset --soft`, `git revert`, `git restore` để phục hồi commit lỗi.                                |
+
+---
+
+## 3. Vấn đề gặp phải & cách khắc phục
+
+| Vấn đề                                | Nguyên nhân                                      | Cách khắc phục                                                          |
+| ------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------------------- |
+| Push bị từ chối (`rejected`)          | Người khác đã push trước → branch remote mới hơn | Dùng `git pull --rebase` hoặc `git pull` trước khi push                 |
+| Merge conflict                        | Cùng sửa 1 dòng trong file                       | Mở file, giữ nội dung đúng, dùng `git add` + `git commit` để giải quyết |
+| Sai commit message / commit nhầm file | Commit sai                                       | Dùng `git reset --soft HEAD~1` hoặc `git restore`                       |
+| Không đồng bộ branch                  | Không cập nhật code mới                          | Dùng `git fetch` + `git pull origin [branch]`                           |
+| Nhầm nhánh khi push                   | Chưa kiểm tra branch hiện tại                    | Dùng `git branch` để xác nhận trước khi commit/push                     |
+
+---
+
+## 4. Cảm nhận cá nhân
+
+### 💬 Cao Minh Kỳ
+
+> Buổi thực hành giúp em hiểu rõ cách Git hoạt động trong môi trường nhóm.
+> Em đã học được cách xử lý conflict, tạo PR, và rollback commit. Việc phối hợp qua Git giúp tránh ghi đè code lẫn nhau và làm việc rõ ràng hơn.
+
+### 💬 Bùi Minh Chiến
+
+> Em hiểu được tầm quan trọng của branch cá nhân và review code.
+> Lần đầu gặp lỗi `non-fast-forward` và `merge conflict` nhưng sau khi thực hành đã biết cách xử lý và pull trước khi push.
+
+### 💬 Phan Gia Thịnh
+
+> Git giúp nhóm làm việc song song, dễ theo dõi ai làm gì. Nếu không dùng Git, việc gộp code thủ công sẽ rất khó và dễ mất dữ liệu.
+
+---
+
+## 5. So sánh làm việc có Git và không có Git
+
+| Tiêu chí             | Có Git                          | Không có Git                  |
+| -------------------- | ------------------------------- | ----------------------------- |
+| Lưu lịch sử thay đổi | Có thể xem lại từng commit      | Không thể truy vết ai sửa     |
+| Làm việc song song   | Mỗi người 1 branch              | Dễ ghi đè code nhau           |
+| Khôi phục lỗi        | Có `reset`, `revert`, `restore` | Khó quay lại bản cũ           |
+| Review & kiểm soát   | Có PR, comment, merge           | Không có quy trình review     |
+| Dễ quản lý version   | Có tag & release                | Khó xác định bản nào là final |
+
+---
+
+## 6. Kết luận
+
+Nhóm đã hoàn thành toàn bộ 8 hoạt động:
+
+ Thành thạo quy trình tạo branch, commit, push, merge.
+ Hiểu cách xử lý conflict, tạo tag, release, và rollback.
+ Nhận ra lợi ích to lớn của Git trong việc phối hợp nhóm: an toàn, rõ ràng và chuyên nghiệp hơn.
+
+> ✅ Kết quả: Repo nhóm hoạt động ổn định, có đầy đủ commit của các thành viên, và đã merge thành công vào `main`.
+
+---
+
+📄 Sản phẩm nộp:
+
+ URL repo: https://github.com/kandy1610/GroupProject-Buoi3.git
+ File báo cáo: baocao.pdf
+ Screenshot: minh họa commit log, conflict, tag, release, rollback.
